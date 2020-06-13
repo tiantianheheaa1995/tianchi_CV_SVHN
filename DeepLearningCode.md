@@ -1,6 +1,6 @@
 一个简单的深度学习工程结构，整体可以分为**数据data**、**神经网络模型model**和
 **训练测试过程train&test**。
-##### 1、数据data可以分为DataSet和DataLoader两部分   
+### 1、数据data可以分为DataSet和DataLoader两部分   
 torch.utils.data中有两个类一个是DataSet类，一个是DataLoader类。这也是我们定义自己的数据集，需要做的两步。  
 **1.1 DataSet**  
 对于一些常用的数据集可以使用torchvision.datasets中提供的数据集。对于自己的数据集，可以继承data.DataSet类，写自己的DataSet类，重写init、getitem和len三个函数。对于不同的数据集，有不同的处理。例如，VOC数据集、COCO数据集、SVHM数据集等。  
@@ -51,7 +51,7 @@ label_path[index]返回的该图片的label。
 **1.2 DataLoader**  
 传入的参数是dataset，batch_size，shuffle(数据集是否打乱)，num_workers(加载数据使用的进程数)，pin_memory(是否使用锁页内存)。
 
-##### 2、神经网络模型model  
+### 2、神经网络模型model  
 **2.1 预训练模型**  
 torchvision.models提供了一些经典的神经网络结构和预训练模型(pretrained=True)。  
 **2.2 自己定义的模型**  
@@ -65,7 +65,7 @@ torchvision.models提供了一些经典的神经网络结构和预训练模型(p
 的层，可以用nn.Module(在init函数中定义)，可以用nn.functional(在forward函数中定义)。
 
 
-#####  3、训练和测试过程  
+### 3、训练和测试过程  
 **3.1 train和val的过程**   
 1、数据准备，train_dataset，train_dataloader，val_dataset，val_dataloader。  
 2、模型准备。  
