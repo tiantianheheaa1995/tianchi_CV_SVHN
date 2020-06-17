@@ -358,8 +358,8 @@ baseline固定的字符长度是5，但是在随机查看训练集图片是，�
 ### SSD 目标检测
 - **训练**<br>
 batch_size=16，训练了30000个iterator。使用的是SDG优化器，初始学习率是0.001，15000个iterator后，学习率降低为10倍，为0.0001；25000个iterator后，学习率降低10倍，为0.00001。优化器使用的动量系数是0.9，正则化系数为0.0005。<br>
-  <img alt="assets/SSD_train_loss_iterator.svg" src="assets/SSD_train_loss_iterator.svg" width="350" height="" >
-<img alt="assets/SSD_train_loss_epoch.svg" src="assets/SSD_train_loss_epoch.svg" width="350" height="" ><br>
+  <img alt="assets/SSD_train_loss_iterator.svg" src="assets/SSD_train_loss_iterator.svg" width="400" height="" >
+<img alt="assets/SSD_train_loss_epoch.svg" src="assets/SSD_train_loss_epoch.svg" width="400" height="" ><br>
 左图是train_loss，横坐标是iterator。右图是train_loss，横坐标是epoch。<br>
 30000个iterator训练后，总的train_loss降低到2.0~2.1级别。
 
