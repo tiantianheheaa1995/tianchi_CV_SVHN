@@ -251,11 +251,11 @@ baseline固定的字符长度是5，但是在随机查看训练集图片是，�
     <img alt="mcharlog/4字节-2-0.0001.bmp" src="assets/mchar-log/4字节-2-0.0001.bmp" width="700" height="" ><br>
     <img alt="assets/mchar-lossacc/4字节-2-0.0001/val_loss.svg" src="assets/mchar-lossacc/4字节-2-0.0001/val_loss.svg" width="350" height="" >
     <img alt="assets/mchar-lossacc/4字节-2-0.0001/val_acc.svg" src="assets/mchar-lossacc/4字节-2-0.0001/val_acc.svg" width="350" height="" >
-    val_loss从2.3降低到2.0，val_acc从0.56快速上升到0.61（1个epoch，二阶学习率下降的效果），然后从0.61缓慢上升到0.64。
+    val_loss从2.3降低到2.0，val_acc从0.56快速上升到0.61（1个epoch，二阶学习率下降的效果），然后从0.61缓慢上升到0.64。<br>
     - **三阶学习率 lr = 0.0001**<br>
     由于二阶段学习中，val_loss在下降，val_acc在上升，没有看到明显的过拟合现象。所以这里仍然使用0.0001的学习率训练了20个epoch。<br>
     <img alt="mcharlog/4字节-3-0.0001.bmp" src="assets/mchar-log/4字节-3-0.0001.bmp" width="700" height="" ><br>
-    val_loss在2.2和2.3之间波动，没有明显下降趋势，val_acc在0.64级别波动，没有明显上升趋势。说明此时学习率已经不合适，偏大。
+    val_loss在2.2和2.3之间波动，没有明显下降趋势，val_acc在0.64级别波动，没有明显上升趋势。说明此时学习率已经不合适，偏大。<br>
     - **三阶学习率 lr = 0.00001**<br>
     把三阶学习率调节为二阶学习率的10%，为0.00001，训练15个epoch。
     <img alt="mcharlog/4字节-3-0.00001.bmp" src="assets/mchar-log/4字节-3-0.00001.bmp" width="700" height="" ><br>
@@ -356,3 +356,13 @@ baseline固定的字符长度是5，但是在随机查看训练集图片是，�
 
 
 ### SSD 目标检测
+- **训练**<br>
+batch_size=16，训练了30000个iterator。使用的是SDG优化器，初始学习率是0.001，15000个iterator后，学习率降低为10倍，为0.0001；25000个iterator后，学习率降低10倍，为0.00001。优化器使用的动量系数是0.9，正则化系数为0.0005。<br>
+  <img alt="assets/SSD_train_loss_iterator.svg" src="assets/SSD_train_loss_iterator.svg" width="350" height="" >
+<img alt="assets/SSD_train_loss_epoch.svg" src="assets/SSD_train_loss_epoch.svg" width="350" height="" ><br>
+左图是train_loss，横坐标是iterator。右图是train_loss，横坐标是epoch。<br>
+30000个iterator训练后，总的train_loss降低到2.0~2.1级别。
+
+- **验证**<br>
+
+- **测试**<br>
